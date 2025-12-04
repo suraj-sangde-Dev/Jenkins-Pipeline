@@ -1,0 +1,6 @@
+@TeleICU.API_HostAddress = http://localhost:5111
+
+GET {{TeleICU.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
