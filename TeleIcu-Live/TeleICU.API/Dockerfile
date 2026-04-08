@@ -7,7 +7,7 @@ EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 As build
 WORKDIR "/app"
-COPY ["./TeleIcu-Live/TeleICU.API/TeleICU.API.csproj","."]    // for better caching first copy .csproj
+COPY ["./TeleIcu-Live/TeleICU.API/TeleICU.API.csproj","."]
 RUN dotnet restore "TeleICU.API.csproj"
 COPY . .
 WORKDIR "/src/."
