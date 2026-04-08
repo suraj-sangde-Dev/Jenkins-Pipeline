@@ -3,11 +3,11 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine As base
 RUN apk add -u tzdata
 ENV TZ='Asia/Kolkata'
 WORKDIR /app
-EXPOSE 80
+EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 As build
 WORKDIR "/app"
-COPY ["TeleICU.API.csproj","."]    // for better caching first copy .csproj
+COPY ["./TeleIcu-Live/TeleICU.API/TeleICU.API.csproj","."]    // for better caching first copy .csproj
 RUN dotnet restore "TeleICU.API.csproj"
 COPY . .
 WORKDIR "/src/."
