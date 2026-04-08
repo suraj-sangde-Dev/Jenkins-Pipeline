@@ -10,11 +10,10 @@ WORKDIR "/app"
 COPY ["TeleICU.API.csproj","."]
 RUN dotnet restore "TeleICU.API.csproj"
 COPY . .
-WORKDIR "/src/."
-RUN dotnet build "TeleICU.API.csproj" -c Release "/app/build"
+RUN dotnet build "TeleICU.API.csproj" -c Release /app/build
 
 FROM build As publish
-RUN dotnet publish "TeleICU.API.csproj" -c Release "/app/publish"
+RUN dotnet publish "TeleICU.API.csproj" -c Release /app/publish
 
 FROM base as final 
 WORKDIR /app
